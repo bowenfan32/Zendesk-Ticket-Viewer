@@ -1,0 +1,22 @@
+{
+  "name": "zendesk_ticket_viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowenfan32/Zendesk-Ticket-Viewer.git"
+  },
+  "author": "Bowen Fan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bowenfan32/Zendesk-Ticket-Viewer/issues"
+  },
+  "homepage": "https://github.com/bowenfan32/Zendesk-Ticket-Viewer#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
