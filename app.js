@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var zendesk = require('node-zendesk');
+var dotenv = require('dotenv').config({path: __dirname + '/.env'});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -50,4 +52,31 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Calls API through Zendesk client
+var client = zendesk.createClient({
+  username:  process.env.EMAIL,
+  token:  process.env.TOKEN,
+  remoteUri: process.env.URL
+});
+
+// Returns a list of tickets
+var tickets = client.tickets.list(function (err, statusList, body, responseList, resultList) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  var tickets = {};
+  
+  for (var key in body) {
+    ticketList = body[key];
+    tickets[key] = ticketList;
+    console.log(tickets[key]);
+  }
+
+  app.locals.tickets = tickets;
+});
+
 module.exports = app;
+
+
