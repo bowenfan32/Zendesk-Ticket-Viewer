@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<body>
+	<h1>{{ticketId}}</h1>
+		{{#with (lookup tickets ticketId)}}
+			<h2>{{description}}</h2>
+		{{/with}}
+				
+</body>

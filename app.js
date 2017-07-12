@@ -66,7 +66,7 @@ var tickets = client.tickets.list(function (err, statusList, body, responseList,
     return;
   }
 
-  var tickets = {};
+  var tickets = [];
   
   for (var key in body) {
     ticketList = body[key];
