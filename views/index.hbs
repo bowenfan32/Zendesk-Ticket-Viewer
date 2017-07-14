@@ -1,13 +1,16 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="javascripts/jquery.paginate.js"></script>
+<script src="javascripts/main.js"></script>
+
 <body>
-	<ul>
+	<ul class="ticket-list">
 		{{#each tickets}}		
-			<a href="{{@index}}">
+			<a href="ticket={{@index}}">
 				<li>{{subject}}</li>
 			</a>
 		{{/each}}	
 	</ul>
-
 </body>
