@@ -6,6 +6,9 @@
 <script src="javascripts/main.js"></script>
 
 <body>
+	{{#if err}}
+		<h1>{{err}}</h1>
+	{{/if}}
 	<ul class="ticket-list">
 		{{#each tickets}}		
 			<a href="ticket={{@index}}">
