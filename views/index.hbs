@@ -14,11 +14,25 @@
 	{{#if err}}
 		<h1>{{err}}</h1>
 	{{/if}}
-	<ul class="ticket-list">
-		{{#each tickets}}		
-			<a href="ticket={{@index}}">
-				<li>{{subject}}</li>
-			</a>
-		{{/each}}	
-	</ul>
+
+	<table class="table">
+		<tbody class="ticket-list">
+			<tr>
+				<th>Subject</th>
+				<th>Requester</th>
+				<th>Requested</th>
+				<th>Type</th>
+				<th>Priority</th>
+			</tr>
+			{{#each tickets}}	
+			<tr class='clickable-row' data-href="ticket={{@index}}">
+				<td>{{subject}}</td>
+				<td>{{requester_id}}</td>
+				<td>{{created_at}}</td>
+				<td>{{type}}</td>
+				<td>{{priority}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
 </body>
