@@ -147,9 +147,9 @@
         var generatePagination = function() {
 
             var paginationEl = '<' + plugin.settings.containerTag + ' class="paginate-pagination paginate-pagination-' + plugin_index + '" data-parent="' + plugin_index + '">';
-            paginationEl += '<' + plugin.settings.paginationTag + '>';
+            paginationEl += '<' + plugin.settings.paginationTag + ' class="pagination">';
 
-            paginationEl += '<' + plugin.settings.itemTag + '>';
+            paginationEl += '<' + plugin.settings.itemTag + ' class="page-item">';
             paginationEl += '<' + plugin.settings.linkTag + ' href="#" data-page="prev" class="page page-prev">&laquo;</' + plugin.settings.linkTag + '>';
             paginationEl += '</' + plugin.settings.itemTag + '>';
 

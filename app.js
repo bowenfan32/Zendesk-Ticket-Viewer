@@ -29,7 +29,11 @@ app.use(sassMiddleware({
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+// Path redirections
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 
 app.use('/', index);
 app.use('/users', users);
