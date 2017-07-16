@@ -7,7 +7,25 @@ a {
 
 tr {
   cursor: pointer; }
+  tr:first-child {
+    cursor: default; }
+    tr:first-child:hover {
+      background: none; }
   tr:hover {
-    background: #f3f3f3; }
+    background: #F3F3F3; }
+  tr span {
+    border-radius: 1em;
+    padding: .3em;
+    color: white;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    text-align: center; }
+  tr .status-pending {
+    background: #59BBE0; }
+  tr .status-open {
+    background: #E82A2A; }
+  tr .status-solved {
+    background: #10d633; }
 
 /*# sourceMappingURL=style.css.map */

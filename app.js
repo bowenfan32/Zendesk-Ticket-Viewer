@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var zendesk = require('node-zendesk');
 var dotenv = require('dotenv').config({path: __dirname + '/.env'});
+var hbs = require('hbs');
 
+// Routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -16,6 +18,19 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Handlebars helper
+hbs.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,1);
+    return new hbs.SafeString(theString)
+});  
+
+hbs.registerHelper("checkNull", function(val) {
+    if(val === null) {
+        return "-";
+    }
+    return val;
+});
 
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -83,5 +98,6 @@ var tickets = client.tickets.list(function (err, statusList, body, responseList,
 });
 
 module.exports = app;
+
 
 

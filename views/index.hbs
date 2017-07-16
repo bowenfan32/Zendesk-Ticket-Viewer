@@ -19,6 +19,7 @@
 		<tbody class="ticket-list">
 			<tr>
 				<th>Subject</th>
+				<th>Status</th>
 				<th>Requester</th>
 				<th>Requested</th>
 				<th>Type</th>
@@ -27,10 +28,11 @@
 			{{#each tickets}}	
 			<tr class='clickable-row' data-href="ticket={{@index}}">
 				<td>{{subject}}</td>
+				<td><span class="status-{{status}}">{{trimString status}}</span></td>
 				<td>{{requester_id}}</td>
 				<td>{{created_at}}</td>
-				<td>{{type}}</td>
-				<td>{{priority}}</td>
+				<td>{{checkNull type}}</td>
+				<td>{{checkNull priority}}</td>
 			</tr>
 			{{/each}}
 		</tbody>

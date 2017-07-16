@@ -9,8 +9,38 @@ a {
 
 tr {
 	cursor: pointer;
-	
+
+	&:first-child {
+		cursor: default;
+		
+		&:hover {
+			background: none;
+		}
+	}
+
 	&:hover {
-		background: #f3f3f3;
+		background: #F3F3F3;
+	}
+
+	span {
+		border-radius: 1em;
+		padding: .3em;
+		color: white;
+		display: inline-block;
+    	width: 2em;
+    	height: 2em;
+    	text-align: center;
+	}
+
+	.status-pending {
+		background: #59BBE0;
+	}
+
+	.status-open {
+		background: #E82A2A;
+	}
+
+	.status-solved {
+		background: #10d633;
 	}
 }
