@@ -1,10 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
 
 <body>
-	<h1>{{ticketId}}</h1>
-		{{#with (lookup tickets ticketId)}}
-			<h2>{{description}}</h2>
-		{{/with}}
-				
+	<h1>Zendesk Ticket Viewer</h1>
+	{{#with (lookup tickets ticketId)}}
+		<h2>{{subject}}</h2>
+		<p>{{format description}}</p>
+	{{/with}}
+
+	<a href="/" class="btn btn-primary" role="button">Back to all tickets</a>
+
+
 </body>
