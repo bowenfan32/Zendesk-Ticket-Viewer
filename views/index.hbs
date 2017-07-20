@@ -1,35 +1,36 @@
 
-
-
-
-
 <body>
-	<h1>Zendesk Ticket Viewer</h1>
-	<p>{{tickets.length}} tickets in total</p>
-	{{#if err}}
-		<h1>{{err}}</h1>
-	{{/if}}
+	<div class="container-fluid">
+		
+		{{#if err}}
+			<h1>Houston, we've had a problem</h1>
+			<h1>{{err}}</h1>
+		{{/if}}
 
-	<table class="table">
-		<tbody class="ticket-list">
-			<tr>
-				<th>Subject</th>
-				<th>Status</th>
-				<th>Requester</th>
-				<th>Requested</th>
-				<th>Type</th>
-				<th>Priority</th>
-			</tr>
-			{{#each tickets}}	
-			<tr class='clickable-row' data-href="ticket={{@index}}">
-				<td>{{subject}}</td>
-				<td><span class="status-{{status}}">{{trimString status}}</span></td>
-				<td>{{lookup ../userList @index}}</td>
-				<td>{{created_at}}</td>
-				<td>{{checkNull type}}</td>
-				<td>{{checkNull priority}}</td>
-			</tr>
-			{{/each}}
-		</tbody>
-	</table>
+		<p>{{tickets.length}} tickets in total</p>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Status</th>
+					<th>Requester</th>
+					<th>Requested</th>
+					<th>Type</th>
+					<th>Priority</th>
+				</tr>
+			</thead>
+			<tbody class="ticket-list">
+				{{#each tickets}}	
+				<tr data-href="ticket={{@index}}">
+					<td>{{subject}}</td>
+					<td><span class="status-{{status}}">{{trimString status}}</span></td>
+					<td>{{lookup ../userList @index}}</td>
+					<td>{{formatDate created_at}}</td>
+					<td>{{checkNull type}}</td>
+					<td>{{checkNull priority}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </body>

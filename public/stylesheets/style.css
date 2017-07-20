@@ -5,15 +5,12 @@ body {
 a {
   color: #00B7FF; }
 
-tr {
+h1 {
+  text-align: center; }
+
+tbody tr {
   cursor: pointer; }
-  tr:first-child {
-    cursor: default; }
-    tr:first-child:hover {
-      background: none; }
-  tr:hover {
-    background: #F3F3F3; }
-  tr span {
+  tbody tr span {
     border-radius: 1em;
     padding: .3em;
     color: white;
@@ -21,15 +18,18 @@ tr {
     width: 2em;
     height: 2em;
     text-align: center; }
-  tr .status-pending {
+  tbody tr .status-pending {
     background: #59BBE0; }
-  tr .status-open {
+  tbody tr .status-open {
     background: #E82A2A; }
-  tr .status-solved {
+  tbody tr .status-solved {
     background: #10d633; }
-  tr .status-closed {
+  tbody tr .status-closed {
     background: gray; }
-  tr td:first-letter {
+  tbody tr td:first-letter {
     text-transform: capitalize; }
+
+.container p {
+  margin: 3em 0; }
 
 /*# sourceMappingURL=style.css.map */

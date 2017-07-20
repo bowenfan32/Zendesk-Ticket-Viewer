@@ -7,49 +7,55 @@ a {
   color: #00B7FF;
 }
 
-tr {
+h1 {
+	text-align: center;
+}
+
+
+tbody {
+	
+	tr {
 	cursor: pointer;
 
-	&:first-child {
-		cursor: default;
-		
-		&:hover {
-			background: none;
+		span {
+			border-radius: 1em;
+			padding: .3em;
+			color: white;
+			display: inline-block;
+	    	width: 2em;
+	    	height: 2em;
+	    	text-align: center;
+		}
+
+		.status-pending {
+			background: #59BBE0;
+		}
+
+		.status-open {
+			background: #E82A2A;
+		}
+
+		.status-solved {
+			background: #10d633;
+		}
+
+		.status-closed {
+			background: gray;
+		}
+
+
+		td:first-letter {
+			text-transform: capitalize;
 		}
 	}
 
-	&:hover {
-		background: #F3F3F3;
-	}
-
-	span {
-		border-radius: 1em;
-		padding: .3em;
-		color: white;
-		display: inline-block;
-    	width: 2em;
-    	height: 2em;
-    	text-align: center;
-	}
-
-	.status-pending {
-		background: #59BBE0;
-	}
-
-	.status-open {
-		background: #E82A2A;
-	}
-
-	.status-solved {
-		background: #10d633;
-	}
-
-	.status-closed {
-		background: gray;
-	}
+}
 
 
-	td:first-letter {
-		text-transform: capitalize;
+.container {
+	p {
+		margin: 3em 0;
 	}
 }
+
+

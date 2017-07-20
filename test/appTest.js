@@ -26,9 +26,10 @@ describe('GET Invalid page', function() {
 
 var client = zendesk.createClient({
   username:  process.env.EMAIL,
-  token:  process.env.TOKEN,
+  password:  process.env.PASSWORD,
   remoteUri: process.env.URL
 });
+
 describe('Return 200 with correct auth', function() {
   this.timeout(15000);
   it('should return 200', function(done) {
@@ -43,9 +44,10 @@ describe('Return 200 with correct auth', function() {
 
 var client1 = zendesk.createClient({
   username:  process.env.EMAIL,
-  token:  "process.env.TOKEN",
+  password:  "process.env.PASSWORD",
   remoteUri: process.env.URL
 });
+
 describe('Return err with incorrect auth', function() {
   this.timeout(15000);
   it('should return 401', function(done) {

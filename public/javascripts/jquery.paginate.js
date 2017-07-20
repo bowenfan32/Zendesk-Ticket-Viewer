@@ -96,8 +96,8 @@
                 $('.paginate-pagination-' + plugin_index).find('.page-next').removeClass("deactive");
             }
 
-            $('.paginate-pagination-' + plugin_index).find('.active').removeClass('active');
-            $('.paginate-pagination-' + plugin_index).find('.page-' + page).addClass('active');
+            $('.paginate-pagination-' + plugin_index).find('.current').removeClass('current');
+            $('.paginate-pagination-' + plugin_index).find('.page-' + page).addClass('current');
 
             offset = (page - 1) * plugin.settings.perPage;
 
