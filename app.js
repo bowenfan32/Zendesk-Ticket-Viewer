@@ -62,7 +62,7 @@ var client = zendesk.createClient({
 });
 
 // Returns a list of tickets
-client.tickets.list(function (err, status, body, response, resultList) {
+client.tickets.list(function (err, status, body, response, result) {
   if (err) {
     app.locals.err = err;
     console.log(err);
