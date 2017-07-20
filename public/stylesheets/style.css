@@ -27,5 +27,9 @@ tr {
     background: #E82A2A; }
   tr .status-solved {
     background: #10d633; }
+  tr .status-closed {
+    background: gray; }
+  tr td:first-letter {
+    text-transform: capitalize; }
 
 /*# sourceMappingURL=style.css.map */

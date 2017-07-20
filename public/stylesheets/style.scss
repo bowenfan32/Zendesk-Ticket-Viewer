@@ -43,4 +43,13 @@ tr {
 	.status-solved {
 		background: #10d633;
 	}
+
+	.status-closed {
+		background: gray;
+	}
+
+
+	td:first-letter {
+		text-transform: capitalize;
+	}
 }

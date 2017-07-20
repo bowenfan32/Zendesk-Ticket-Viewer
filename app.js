@@ -9,28 +9,33 @@ var zendesk = require('node-zendesk');
 var dotenv = require('dotenv').config({path: __dirname + '/.env'});
 var hbs = require('hbs');
 
+// Handlebars helper
+hbs.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,1);
+    return new hbs.SafeString(theString);
+});  
+
+hbs.registerHelper("checkNull", function(val) {
+    if(val === null) {
+        return "-";
+    } 
+    return val; 
+});
+
+hbs.registerHelper("format", function(passedString) {
+    var theString = passedString.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    return new hbs.SafeString(theString);
+});
+
 // Routes
 var index = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-// Handlebars helper
-hbs.registerHelper('trimString', function(passedString) {
-    var theString = passedString.substring(0,1);
-    return new hbs.SafeString(theString)
-});  
-
-hbs.registerHelper("checkNull", function(val) {
-    if(val === null) {
-        return "-";
-    }
-    return val;
-});
 
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -51,7 +56,7 @@ app.use(express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 
 app.use('/', index);
-app.use('/users', users);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -78,8 +83,10 @@ var client = zendesk.createClient({
   remoteUri: process.env.URL
 });
 
+
+
 // Returns a list of tickets
-var tickets = client.tickets.list(function (err, statusList, body, responseList, resultList) {
+client.tickets.list(function (err, statusList, body, response, resultList) {
   if (err) {
     app.locals.err = err;
     console.log(err);
@@ -87,11 +94,16 @@ var tickets = client.tickets.list(function (err, statusList, body, responseList,
   }
 
   var tickets = [];
+  var userList = [];
   
   for (var key in body) {
     ticketList = body[key];
     tickets[key] = ticketList;
-    console.log(tickets[key]);
+
+    client.users.show(tickets[key].requester_id, function (err, req, result) {
+        userList.push(result.name);
+        app.locals.userList = userList;
+    });
   }
 
   app.locals.tickets = tickets;

@@ -1,16 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
 
-<link rel="stylesheet" href="bootstrap.min.css">
-<script src="jquery.min.js"></script>
-<script src="bootstrap.min.js"></script>
-<script src="javascripts/jquery.paginate.js"></script>
-<script src="jquery.bootpag.js"></script>
-<script src="javascripts/main.js"></script>
+
 
 
 <body>
+	<h1>Zendesk Ticket Viewer</h1>
+	<p>{{tickets.length}} tickets in total</p>
 	{{#if err}}
 		<h1>{{err}}</h1>
 	{{/if}}
@@ -29,7 +24,7 @@
 			<tr class='clickable-row' data-href="ticket={{@index}}">
 				<td>{{subject}}</td>
 				<td><span class="status-{{status}}">{{trimString status}}</span></td>
-				<td>{{requester_id}}</td>
+				<td>{{lookup ../userList @index}}</td>
 				<td>{{created_at}}</td>
 				<td>{{checkNull type}}</td>
 				<td>{{checkNull priority}}</td>
