@@ -1,6 +1,8 @@
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
-    concat      = require('gulp-concat');
+    concat      = require('gulp-concat')
+    uglify		= require('gulp-uglify')
+    minify		= require('gulp-minify-css');
 
 
 gulp.task('default', function() {
@@ -12,6 +14,7 @@ gulp.task('default', function() {
 gulp.task('styles', function(){
     gulp.src('public/stylesheets/src/style.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(minify())
         .pipe(gulp.dest('./public/stylesheets'));
 });
 
@@ -21,6 +24,7 @@ gulp.task('scripts', function() {
         'public/javascripts/src/functions.js'
     ])
         .pipe(concat('main.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./public/javascripts/'));
 });
 
