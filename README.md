@@ -9,7 +9,7 @@ Once done, run NODE BIN/WWW in root directory to initialize the server
 Navigate to http://localhost:3000/ to view the app
 
 ## Testing
-Testing in done with Mocha, to run tests, simply run NPM TEST in root directory
+Testing is written using Mocha, to run tests, simply run NPM TEST in root directory
 
 
 
